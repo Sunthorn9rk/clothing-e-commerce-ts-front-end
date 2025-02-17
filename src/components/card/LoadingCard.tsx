@@ -11,13 +11,6 @@ const LoadingCard: React.FC<LoadingCardProps> = ({count}) => {
     <>
       {Array.from({length: count}).map((_, i) => (
         <div key={i} className="my-4">
-          {/* <div className="flex flex-col space-y-3">
-            <Skeleton className="w-full h-80 rounded-2xl" />
-            <div className="space-y-2">
-              <Skeleton className="h-4 w-[250px]" />
-              <Skeleton className="h-4 w-[200px]" />
-            </div>
-          </div> */}
           <div className="space-y-3">
             <Skeleton className="w-full h-80 rounded-2xl" />
             <div className="space-y-2">
