@@ -4,8 +4,8 @@ import Wrapper from "@/components/Wrapper";
 import HeroBanner from "@/components/HeroBanner";
 import BrandBanner from "@/components/BrandBanner";
 import Category from "@/components/Category";
-// import LoadingCard from "@/components/card/LoadingCard";
-// import ProductCard from "@/components/card/ProductCard";
+import LoadingCard from "@/components/card/LoadingCard";
+import ProductCard from "@/components/card/ProductCard";
 
 import {getdata, listby} from "@/functions/product";
 
@@ -55,14 +55,16 @@ export default function page() {
         </h1>
 
         {/* products grid start */}
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-10 max-w-[1280px] mx-auto p-20 lg:p-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-10 max-w-[1280px] mx-auto p-20 gap-5 lg:p-0">
           {loading ? (
-            <LoadingCard count={3} />
+            <LoadingCard count={4} />
           ) : (
             // Loop items
-            product.slice(0, 8).map((item) => <ProductCard data={item} />)
+            product
+              .slice(0, 8)
+              .map((item) => <ProductCard key={item.id} data={item} />)
           )}
-        </div> */}
+        </div>
         {/* products grid end */}
 
         <h1
@@ -72,14 +74,16 @@ export default function page() {
           TOP SELLING
         </h1>
         {/* products grid start */}
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-10 max-w-[1280px] mx-auto p-20 lg:p-0 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-10 max-w-[1280px] mx-auto p-20 lg:p-0 gap-5">
           {loading ? (
-            <LoadingCard count={3} />
+            <LoadingCard count={4} />
           ) : (
             // Loop items
-            productTop.slice(0, 12).map((item) => <ProductCard data={item} />)
+            productTop
+              .slice(0, 12)
+              .map((item) => <ProductCard key={item.id} data={item} />)
           )}
-        </div> */}
+        </div>
         {/* products grid end */}
 
         <div id="category">
