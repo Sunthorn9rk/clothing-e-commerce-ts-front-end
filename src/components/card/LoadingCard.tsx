@@ -1,5 +1,6 @@
 import React from "react";
-import {Card, Skeleton, Box} from "@mui/material";
+// import {Card, Skeleton, Box} from "@mui/material";
+import {Skeleton} from "@/components/ui/skeleton";
 
 interface LoadingCardProps {
   count: number;
@@ -9,26 +10,22 @@ const LoadingCard: React.FC<LoadingCardProps> = ({count}) => {
   return (
     <>
       {Array.from({length: count}).map((_, i) => (
-        <div key={i} className="w-full sm:w-1/2 lg:w-1/4 p-4">
-          <Card
-            sx={{
-              height: 300,
-              width: 300,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: 2,
-            }}
-          >
-            <Box sx={{width: "90%", height: "80%"}}>
-              <Skeleton
-                variant="rectangular"
-                width="100%"
-                height="100%"
-                sx={{borderRadius: 2}}
-              />
-            </Box>
-          </Card>
+        <div key={i} className="my-4">
+          {/* <div className="flex flex-col space-y-3">
+            <Skeleton className="w-full h-80 rounded-2xl" />
+            <div className="space-y-2">
+              <Skeleton className="h-4 w-[250px]" />
+              <Skeleton className="h-4 w-[200px]" />
+            </div>
+          </div> */}
+          <div className="space-y-3">
+            <Skeleton className="w-full h-80 rounded-2xl" />
+            <div className="space-y-2">
+              <Skeleton className="h-4 w-[180px]" />
+              <Skeleton className="h-4 w-[120px]" />
+              <Skeleton className="h-4 w-[200px]" />
+            </div>
+          </div>
         </div>
       ))}
     </>
