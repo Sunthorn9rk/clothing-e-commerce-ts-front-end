@@ -1,5 +1,7 @@
 "use client";
 import React, {useEffect, useState} from "react";
+
+// components
 import Wrapper from "@/components/Wrapper";
 import HeroBanner from "@/components/HeroBanner";
 import BrandBanner from "@/components/BrandBanner";
@@ -7,18 +9,26 @@ import Category from "@/components/Category";
 import LoadingCard from "@/components/card/LoadingCard";
 import ProductCard from "@/components/card/ProductCard";
 
+// functions
 import {getdata, listby} from "@/functions/product";
 
 export default function page() {
-  const [product, setProduct] = useState([]);
-  const [productTop, setProductTop] = useState([]);
+  // state
+  interface Product {
+    id: string;
+  }
+
+  const [product, setProduct] = useState<Product[]>([]);
+  const [productTop, setProductTop] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // useEffect
   useEffect(() => {
     loadData();
     loadTopSellData();
   }, []);
 
+  // functions
   const loadData = async () => {
     await listby("createdAt", "desc")
       .then((res) => {
@@ -35,7 +45,7 @@ export default function page() {
   const loadTopSellData = async () => {
     await listby("sale_amount", "desc")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setProductTop(res.data);
         setLoading(false);
       })
